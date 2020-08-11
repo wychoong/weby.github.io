@@ -1,1 +1,57 @@
-<h1>hello world</h1>
+<!DOCTYPE HTML>
+<!--
+	Eventually by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Weby Digital</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<h1>Weby Digital</h1>
+				<p style="max-width:50%">We are an enthusiastic bunch of "solutionizer" from diverse educational background 
+				who were brought together by the IT and software industry.
+				<br/>
+				<br/>
+				We are passionate in building solutions that enhances your customer journey, managing from customers' first engagement to their returning experience.</p>
+			</header>
+			
+		<!-- Signup Form -->
+			<form id="signup-form" method="post" action="#">
+				<!-- <input type="email" name="email" id="email" placeholder="Email Address" /> -->
+				<!-- <input type="submit" value="Sign Up" /> -->
+				<input type="button" value="Contact Us" onclick=sendEmail() />
+			</form>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<ul class="icons">
+					<!-- <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li> -->
+					<!-- <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li> -->
+					<!-- <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li> -->
+					<!-- <li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li> -->
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Weby Digital 2020</li>
+					<li>Coming Soon</li>
+				</ul>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/main.js"></script>
+			<script>
+				function sendEmail(){
+					dm = "weby.digital"
+					formattedBody = "Hi, \n\n I'm interested to know more! \n\nName: \nMobile Contact: \nCompany: \n\n"
+					window.location.href="mailto:hello@"+dm+"?subject=Hi Weby!&body="+encodeURIComponent(formattedBody)
+				}
+			</script>
+	</body>
+</html>
