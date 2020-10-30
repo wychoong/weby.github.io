@@ -8,6 +8,21 @@
 
 	"use strict";
 
+	// get root directory
+	var rootDir = '';
+	if(window.location.protocol == 'file:'){
+		var path = window.location.pathname,
+			siteName = 'weby.github.io',
+			localPathname = path.substr(path.indexOf(siteName) + siteName.length),
+			sub = localPathname.substr(0, localPathname.lastIndexOf('/')).split('/').filter((val) => val).length
+		
+	}else{
+		var sub = window.location.pathname.split('/').filter((val) => val).length
+	}
+	for(var i = 0; i < sub; i++){
+		rootDir += '../'
+	}
+
 	var	$body = document.querySelector('body');
 
 	// Methods/polyfills.
@@ -60,7 +75,7 @@
 
 					// Create BG.
 						$bg = document.createElement('div');
-							$bg.style.backgroundImage = 'url("' + k + '")';
+							$bg.style.backgroundImage = 'url("' + rootDir + k + '")';
 							$bg.style.backgroundPosition = settings.images[k];
 							$wrapper.appendChild($bg);
 
@@ -110,7 +125,7 @@
 					$message;
 
 			// Bail if addEventListener isn't supported.
-				if (!('addEventListener' in $form))
+				if (!$form || !('addEventListener' in $form))
 					return;
 
 			// Message.

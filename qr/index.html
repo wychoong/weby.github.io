@@ -9,26 +9,35 @@
 		<title>Weby Digital</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
 	</head>
 	<body class="is-preload">
 
 		<!-- Header -->
 			<header id="header">
-				<h1>Weby Digital</h1>
-				<p style="max-width:50%">We are an enthusiastic bunch of "solutionizer" from diverse educational background 
-				who were brought together by the IT and software industry.
-				<br/>
-				<br/>
-				We are passionate in building solutions that enhances your customer journey, managing from customers' first engagement to their returning experience.</p>
+				<h1>Contact Card</h1>
+				<p style="max-width:50%">
+					Address
+					</br>
+					Phone
+					</br>
+					Email <a href="javascript:sendEmail()">hello@weby.digital</a>
+				
+				<div>
+					Hi, I'm <span class="name"></span>, nice to meet you
+					<br> email: <span class="name"></span>@weby.digital
+					<br> contact: +60123456789
+					<br><input type='button' value="Add Me to Your Phonebook!" />
+				</div>
+				</p>
 			</header>
 			
 		<!-- Signup Form -->
-			<form id="signup-form" method="post" action="#">
+			<!-- <form id="signup-form" method="post" action="#"> -->
 				<!-- <input type="email" name="email" id="email" placeholder="Email Address" /> -->
 				<!-- <input type="submit" value="Sign Up" /> -->
-				<input type="button" value="Contact Us" onclick=sendEmail() />
-			</form>
+				<!-- <input type="button" value="Contact Us" onclick=sendEmail() /> -->
+				<!-- </form> -->
 
 		<!-- Footer -->
 			<footer id="footer">
@@ -45,13 +54,40 @@
 			</footer>
 
 		<!-- Scripts -->
-			<script src="assets/js/main.js"></script>
+			<script src="../assets/js/main.js"></script>
 			<script>
 				function sendEmail(){
 					dm = "weby.digital"
 					formattedBody = "Hi, \n\n I'm interested to know more! \n\nName: \nMobile Contact: \nCompany: \n\n"
 					window.location.href="mailto:hello@"+dm+"?subject=Hi Weby!&body="+encodeURIComponent(formattedBody)
 				}
+
+	(function () {
+		var search = location.search.substring(1);
+		if (!search) return
+		var urlParams = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"') + '"}')
+		console.log(urlParams)
+		if (urlParams.id) {
+			var contacts = {
+				'001': {
+					name: 'kat',
+					phone: '123456'
+				},
+				'002': {
+					name: 'wy',
+					phone: '987654'
+				}
+			}
+			var info = contacts[urlParams.id]
+			if (info) {
+
+				Array.from(document.querySelectorAll('.name')).map((nameCont) => {
+					nameCont.innerHTML = info.name
+					console.log(nameCont)
+				});
+			}
+		}
+	})()
 			</script>
 	</body>
 </html>
