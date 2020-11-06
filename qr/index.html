@@ -17,17 +17,19 @@
 			<header id="header">
 				<h1>Contact Card</h1>
 				<p style="max-width:50%">
-					Address
-					</br>
-					Phone
-					</br>
-					Email <a href="javascript:sendEmail()">hello@weby.digital</a>
+					<!-- Address -->
+					<!-- </br> -->
+					<!-- Phone -->
+					<!-- </br> -->
+					<!-- Email <a href="javascript:sendEmail()">hello@weby.digital</a> -->
 				
 				<div>
-					Hi, I'm <span class="name"></span>, nice to meet you
-					<br> email: <span class="name"></span>@weby.digital
-					<br> contact: +60123456789
-					<br><input type='button' value="Add Me to Your Phonebook!" />
+					Hi, I'm <span class="name"></span>, nice to meet you!
+					
+					<br><br> Contact me at
+					<br> Email: <span class="email"></span>
+					<br> Phone: <span class="phone"></span>
+					<!-- <br><input type='button' value="Add Me to Your Phonebook!" /> -->
 				</div>
 				</p>
 			</header>
@@ -70,12 +72,14 @@
 		if (urlParams.id) {
 			var contacts = {
 				'001': {
-					name: 'kat',
-					phone: '123456'
+					name: 'Katherine',
+					phone: '+60175750635',
+					email: 'katherine@weby.digital'
 				},
 				'002': {
-					name: 'wy',
-					phone: '987654'
+					name: 'Choong',
+					phone: '+60122910314',
+					email: 'wenying@weby.digital'
 				}
 			}
 			var info = contacts[urlParams.id]
@@ -83,6 +87,16 @@
 
 				Array.from(document.querySelectorAll('.name')).map((nameCont) => {
 					nameCont.innerHTML = info.name
+					console.log(nameCont)
+				});
+				
+				Array.from(document.querySelectorAll('.email')).map((nameCont) => {
+					nameCont.innerHTML = info.email
+					console.log(nameCont)
+				});
+				
+				Array.from(document.querySelectorAll('.phone')).map((nameCont) => {
+					nameCont.innerHTML = info.phone
 					console.log(nameCont)
 				});
 			}
